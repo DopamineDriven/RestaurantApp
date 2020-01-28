@@ -33,22 +33,61 @@ function ObjToSql(ob) {
     }
 }
 
+//orm object for all SQL statement functions
 const orm = {
+    //using (resolve, reject) params bam bam instead of cb approach
+    //get
     selectAll: function(table) {
-        return new Promise
+        return new Promise((resolve, reject) => {
+            const query = `SELECT * FROM ${table}`;
+            connection.query(query, (error, result) => {
+                if(error) {
+                    console.log(error)
+                    reject(error)
+                } resolve(result)
+            })
+        });
+    },
+    //post
+    create: function(table, cols, vals) {
+        return new Promise ((resolve, reject) => {
+            let query = `INSERT INTO ${table} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
+               console.log(query)
+               connection.query(query, vals, (error, result) => {
+                   if (error) {
+                       console.log(error)
+                       reject(error)
+                   }
+                   resolve(result)
+               })
+        });
+    },
+    //put
+    update: function(table, colsValsObj, condition) {
+        return new Promise ((resolve, reject) => {
+            const query = `UPDATE ${table} SET ${ObjToSql(colsValsObj)} WHERE ${condition}`;
+            connection.query(query, (error, result) => {
+                if (error) {
+                    console.log(error)
+                    reject(error)
+                }
+                resolve(result)
+            })
+        });
+    },
+    //remove
+    delete: function(table, condition) {
+        return new Promise ((resolve, reject) => {
+            const query = `DELETE FROM ${table} WHERE ${condition}`;
+            connection.query(query, (error, result) => {
+                if (error) {
+                    console.log(error)
+                    reject(error)
+                }
+                resolve(result)
+            })
+        })
     }
-
-    //selectAll()
-
-
-    //insertOne()
-
-
-    //updateOne()
-
-
-    //removeOne()
-
 };
 
 module.exports = orm;
