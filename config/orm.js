@@ -35,7 +35,7 @@ function ObjToSql(ob) {
 
 //orm object for all SQL statement functions
 const orm = {
-    //using (resolve, reject) params bam bam instead of cb approach
+    //instead of cb approach, using return new Promise (resolve, reject) params bam bam
     //get
     selectAll: function(table) {
         return new Promise((resolve, reject) => {
