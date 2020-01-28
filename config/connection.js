@@ -9,7 +9,7 @@ const connection = mysql.createConnection({
     //database: database goes here
 });
 
-//establishing connetion
+//establishing connection
 
 connection.connect((error) => {
     if (error) {

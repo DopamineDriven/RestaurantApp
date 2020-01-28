@@ -1,7 +1,16 @@
 # RestaurantApp
 mysql, express, express-handlebars, node, ORM, heroku
 
+## npm dependencies
+orm -- https://www.npmjs.com/package/orm
+mysql -- https://www.npmjs.com/package/mysql
+express -- https://www.npmjs.com/package/express
+express-handlebars -- https://www.npmjs.com/package/express-handlebars
+body-parser -- https://www.npmjs.com/package/body-parser
+nodemon -- https://www.npmjs.com/package/nodemon
 
+## useful resources
+https://www.sitepoint.com/a-beginners-guide-to-handlebars/
 
 # Node Express Handlebars
 
