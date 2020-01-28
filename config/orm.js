@@ -10,9 +10,9 @@ const orm = {
 
     //updateOne()
 
-    
+
     //removeOne()
 
-}
+};
 
-module.exports=orm;
+module.exports = orm;
