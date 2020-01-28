@@ -1,6 +1,6 @@
 const express = require("express");
 //body-parser middleware
-const bodyParser = require("body-parser");
+//const bodyParser = require("body-parser");
 const app = express();
 const PORT = process.env.PORT || 4321;
 
@@ -8,10 +8,10 @@ const PORT = process.env.PORT || 4321;
 app.use(express.static("public"));
 
 //parses any json body passed in the app
-app.use(bodyParser.json());
+app.use(express.json());
 
 //takes parameter for extended to extend capability of body-parser
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: true}));
 
 //handlebars
 const exphbs = require("express-handlebars");
