@@ -64,9 +64,9 @@ const orm = {
         });
     },
     //put
-    update: function(table, colsValsObj, condition) {
+    update: function(table, colValsObj, condition) {
         return new Promise ((resolve, reject) => {
-            const query = `UPDATE ${table} SET ${ObjToSql(colsValsObj)} WHERE ${condition}`;
+            const query = `UPDATE ${table} SET ${ObjToSql(colValsObj)} WHERE ${condition}`;
             connection.query(query, (error, result) => {
                 if (error) {
                     console.log(error)
