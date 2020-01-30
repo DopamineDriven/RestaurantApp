@@ -1,3 +1,4 @@
+//requiring connection.js file that links burgers_db with this program via mysql
 const connection = require("./connection.js");
 
 //helper functions for sql syntax
@@ -90,4 +91,5 @@ const orm = {
     }
 };
 
+//exporting orm object to be used in models
 module.exports = orm;

@@ -6,7 +6,7 @@ const orm = require("../config/orm.js");
 //using async try, catch approach as opposed to static sync function (cb) approach
 
 //get => orm.selectAll
-async function allBurgers() {
+async function gettingAll() {
     try {
         const resultados = await orm.selectAll('burgers');
         return resultados
@@ -19,7 +19,7 @@ async function allBurgers() {
 };
 
 //post => orm.create
-async function createBurger(cols, vals) {
+async function creating(cols, vals) {
     try {
         const resultados = await orm.create('burgers', cols, vals);
         return resultados 
@@ -32,7 +32,7 @@ async function createBurger(cols, vals) {
 };
 
 //put => orm.update
-async function editBurger(colValsObj, condition) {
+async function editing(colValsObj, condition) {
     try {
         const resultados = await orm.update('burgers', colValsObj, condition);
         return resultados
@@ -45,7 +45,7 @@ async function editBurger(colValsObj, condition) {
 };
 
 //delete => orm.delete
-async function deleteBurger(condition) {
+async function deleting(condition) {
     try {
         const resultados = await orm.delete('burgers', condition);
         return resultados
@@ -58,8 +58,8 @@ async function deleteBurger(condition) {
 };
 
 module.exports = {
-    allBurgers,
-    createBurger,
-    editBurger,
-    deleteBurger
+    gettingAll,
+    creating,
+    editing,
+    deleting
 };

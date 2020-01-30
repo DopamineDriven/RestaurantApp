@@ -10,7 +10,7 @@ app.use(express.static("public"));
 //parses any json body passed in the app
 app.use(express.json());
 
-//takes parameter for extended to extend capability of body-parser
+//takes parameter for extended
 app.use(express.urlencoded({extended: true}));
 
 //handlebars
