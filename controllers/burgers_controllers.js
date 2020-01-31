@@ -65,6 +65,7 @@ router.put('/api/burgers/:id', async (request, response) => {
 router.post('/api/burgers', async (request, response) => {
     try {
         const {burger_name, devoured} = request.body;
+        console.log({burger_name, devoured})
         const result = await creating(["burger_name", "devoured"], [burger_name, devoured]);
         if (result.affectedRows === 0) {
             return response
