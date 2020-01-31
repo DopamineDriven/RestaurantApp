@@ -40,7 +40,7 @@ router.put('/api/burgers/:id', async (request, response) => {
         const condition = `id = ${request.params.id}`;
         console.log(request.body);
         const results = await editing(request.body, condition);
-        if (!results) {
+        if (results.affectedRows===0) {
             return response
                 .status(404)
                 .send("id does not exist")
@@ -54,10 +54,9 @@ router.put('/api/burgers/:id', async (request, response) => {
     }
     catch (error) {
         if (error) {
-            console.log(error)
             response
                 .status(500)
-                .send("error occurred")
+                .send(`error occurred ${error}`)
                 throw error
         }
     }
@@ -73,10 +72,12 @@ router.post('/api/burgers', async (request, response) => {
                 .send("the burger was not added successfully")
                 .end()
         } else {
+            console.log(result)
+            console.log({id: result.insertId}, {burger_name: burger_name}, {devoured: devoured});
             response
-                .status(200)
-                .send("burger added successfully")
                 .json({id: result.insertId})
+                .status(200)
+                //.send("burger added successfully")
         }
     }
     catch (error) {

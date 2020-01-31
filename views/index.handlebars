@@ -4,7 +4,8 @@
     <h1 class="text-center pt-5 mb-5">Fuego Choices</h1>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3">
         {{!--each helper used to iterate over an array; #each ArrayName; this refers to individual array items (burger)--}}
-        {{#each burgers}}
+        {{#each burgers as |burger_name devoured|}}
+            {{burger_name}}:{{devoured}}
             {{!-- create burger partial template --}}
             {{!> burger this}}
         {{/each}}

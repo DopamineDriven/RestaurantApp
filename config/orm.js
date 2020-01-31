@@ -18,6 +18,7 @@ function printQuestionMarks(num) {
 //helper function converts object key/value pairs to SQL syntax
 function ObjToSql(ob) {
     const arr = [];
+    console.log(ob)
     
     //loops through keys and pushes the key/value as a string int arr
     for (let [key, value] of Object.entries(ob)) {
@@ -30,8 +31,9 @@ function ObjToSql(ob) {
             value = "'" + value + "'"
         };
         //example: {sleepy: true} => ["sleepy=true"]
-        arr.push(`${key}=${value}`) 
+        arr.push(`${key}=${value}`)
     }
+    return arr
 }
 
 //orm object for all SQL statement functions
@@ -66,7 +68,9 @@ const orm = {
     //put
     update: function(table, colValsObj, condition) {
         return new Promise ((resolve, reject) => {
-            const query = `UPDATE ${table} SET ${ObjToSql(colValsObj)} WHERE ${condition}`;
+            let set=ObjToSql(colValsObj);
+            console.log(set);
+            const query = `UPDATE ${table} SET ${set} WHERE ${condition}`;
             connection.query(query, (error, result) => {
                 if (error) {
                     console.log(error)
