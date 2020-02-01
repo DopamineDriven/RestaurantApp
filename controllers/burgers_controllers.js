@@ -35,7 +35,7 @@ router.delete('/api/burgers/:id', async (request, response) => {
     }
 });
 
-router.put('/api/burgers/:id', async (request, response) => {
+router.put('/api/burgers/:id', inputValidation, async (request, response) => {
     try {
         const condition = `id = ${request.params.id}`;
         console.log(request.body);
@@ -62,7 +62,7 @@ router.put('/api/burgers/:id', async (request, response) => {
     }
 });
 
-router.post('/api/burgers', async (request, response) => {
+router.post('/api/burgers', inputValidation, async (request, response) => {
     try {
         const {burger_name, devoured} = request.body;
         console.log({burger_name, devoured})
@@ -122,6 +122,30 @@ router.get('/', async (request, response) => {
 
     }
 });
+
+//middleware function to ensure required fields are accounted for on post/put requests; else throws an error
+//middleware tested via postman to ensure effectiveness
+function inputValidation(request, response, next) {
+    const { burger_name, devoured } = request.body;
+    //creating array of list of items that are missing
+    const missingFields = [];
+    if (!burger_name) {
+      missingFields.push("burger_name");
+    }
+    if (!devoured) {
+      missingFields.push("devoured");
+    }
+    if (missingFields.length) {
+      response
+        //status 400 for bad request
+        .status(400)
+        .send(`The following fields are missing: ${missingFields.join(", ")}`);
+    }
+    //if no missing field, proceed to next middleware
+    else {
+      next();
+    }
+  };
 
 //exporting routes to server.js 
 module.exports = router;
