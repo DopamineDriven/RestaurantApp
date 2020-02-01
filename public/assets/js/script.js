@@ -1,22 +1,22 @@
 //wait to attach handlers until DOM is full
 $(function() {
-  $(".create-form").on("submit", event => {
+  $("#addburger").on("click", event => {
     //prevent default on submit event
     event.preventDefault();
-
-    const nuevoBurger = {
-      burger_name: $("#nuevoburger")
-        .val()
-        .trim(),
-      devoured: 0
+    let burgerName = $("#newBurger")
+    .val()
+    .trim()
+    let nuevoBurger = {
+      burger_name: burgerName
     };
     $.ajax("/api/burgers", {
       type: "POST",
       data: nuevoBurger
     }).then(() => {
-      console.log("New Burger Created");
+      console.log(`${nuevoBurger} created`);
       //reload page to retrieve updated list
-      location.reload();
+      location.href = "/"
+      //location.reload();
     });
   });
 
@@ -24,7 +24,8 @@ $(function() {
   $(".devourburger").on("click", event => {
     //prevent default on devour click event
     event.preventDefault();
-    const id = $(this).data("id");
+    const id = $(event.target).data("id");
+    console.log($(event.target).data("id"))
     const devouredState = {
       //if devoured = 1 return true; else devoured = 0 return false
       devoured: 1
@@ -44,12 +45,12 @@ $(function() {
   $(".eightySixBurger").on("click", event => {
     //prevent default on eightySix click event
     event.preventDefault();
-    const id = $(this).data("id");
+    const id = $(event.target).data("id");
+    console.log(id)
 
     //send eightySix request
-    $.ajax({
+    $.ajax(`/api/burgers/${id}`, {
       type: "DELETE",
-      url: `/api/burgers/${id}`
     }).then(location.reload());
   });
 });

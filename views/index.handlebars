@@ -7,22 +7,10 @@
         <panel>
             <form class="create-form">
                 <div class="form-group">
-                    <label for="nuevoburger">Order Fuego Burger</label>
-                    <select data-placeholder="" id="nuevoburger" name="burger">
-                        <option value="Nothing selected, you indecisive bitch"selected></option>
-                        <option value="Angus Burger"Angus Burger></option>
-                        <option value="Firestarter Burger"Firestarter Burger></option>
-                        <option value="Smokehouse Burger"Smokehouse Burger></option>
-                        <option value="Beyond Burger"Beyond Burger></option>
-                        <option value="Bison Burger"Bison Burger></option>
-                        <option value="Blackbean Burger"Blackbean Burger></option>
-                        <option value="Heart Attack Burger"Heart Attack Burger></option>
-                        <option value="Bruschetta Burger"Bruschetta Burger></option>
-                        <option value="Horseradish Mushroom Burger"Horseradish Mushroom Burger></option>
-                        <option value="Sunrise Burger"Sunrise Burger></option>
-                    </select>
+                    <label for="nuevoburger"></label>
+                        <input type="text" id="newBurger" placeholder="enter desired burger"> 
                     <button type="submit" class="btn btn-success" id="addburger">
-                        <span class="fas fa-burger">Devour</span>
+                        <span class="fas fa-burger">Add Burger</span>
                     </button>
                 </div>
             </form>
@@ -31,16 +19,16 @@
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading" id="leftshift"><B>Order Burger</B>
-                    <p>Submit Order to Cashier when ready</p>
+                <div class="panel-heading" id="leftshift"><B>Burger Queue</B>
+                    <p>Click to Devour Burger</p>
                 </div>
                 <div class="panel-body">
                     <ul>
                         {{#each burgers}}
                         {{#unless devoured}}
                         <span><B>{{this.id}} - {{this.burger_name}}</B></span>
-                        <button type="button" class="devourburger btn btn-warning" id="devourbutton" data-id="{{this.id}}"
-                            data-newDevoured="{{devour}}"><i class="fas fa-usd"></i></button>
+                        <button type="button" class="devourburger btn btn-warning" data-id="{{this.id}}"
+                            data-newDevoured="{{devour}}"><i class="fas fa-hamburger"></i></button>
                         <hr>
                         {{/unless}}
                         {{/each}}
@@ -50,15 +38,15 @@
         </div>
         <div class="col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading" id="rightshift"><B>Burger Ready</B>
-                    <p>Remove Order from queue upon delivery</p>
+                <div class="panel-heading" id="rightshift"><B>Devoured Burger List</B>
+                    <p>Click to 86 devoured burger</p>
                 </div>
                 <div class="panel-body">
                     <ul>
                         {{#each burgers}}
                         {{#if devoured}}
                         <span><B>{{this.id}} - {{this.burger_name}}</B></span>
-                        <button type="button" class="eightySixBurger btn btn-danger" id="eightySixButton" data-id="{{this.id}}"
+                        <button type="button" class="eightySixBurger btn btn-danger" data-id="{{this.id}}"
                             data-newDevoured="{{devour}}"><i class="fas fa-trash"></i></button>
                         <hr>
                         {{/if}}

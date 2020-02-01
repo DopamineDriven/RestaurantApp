@@ -35,7 +35,7 @@ router.delete('/api/burgers/:id', async (request, response) => {
     }
 });
 
-router.put('/api/burgers/:id', inputValidation, async (request, response) => {
+router.put('/api/burgers/:id',  async (request, response) => {
     try {
         const condition = `id = ${request.params.id}`;
         console.log(request.body);
@@ -62,7 +62,7 @@ router.put('/api/burgers/:id', inputValidation, async (request, response) => {
     }
 });
 
-router.post('/api/burgers', inputValidation, async (request, response) => {
+router.post('/api/burgers', async (request, response) => {
     try {
         const {burger_name, devoured} = request.body;
         console.log({burger_name, devoured})
@@ -154,6 +154,7 @@ router.get('/devour', async (request, response) => {
     }
 });
 
+
 //middleware function to ensure required fields are accounted for on post/put requests; else throws an error
 //middleware tested via postman to ensure effectiveness
 function inputValidation(request, response, next) {
@@ -163,7 +164,7 @@ function inputValidation(request, response, next) {
     if (!burger_name) {
       missingFields.push("burger_name");
     }
-    if (!devoured) {
+    if (devoured === null) {
       missingFields.push("devoured");
     }
     if (missingFields.length) {
