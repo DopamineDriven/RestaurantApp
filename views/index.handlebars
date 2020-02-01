@@ -1,12 +1,71 @@
-{{!-- create navbar partial template --}}
-{{!> navbar}}
 <div class="container">
-    <h1 class="text-center pt-5 mb-5">Fuego Choices</h1>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3">
-        {{!--each helper used to iterate over an array; #each ArrayName; this refers to individual array items (burger)--}}
-        {{#each burgers}}
-            {{!-- create burger partial template --}}
-            {{> burger this}}
-        {{/each}}
+    <div class="jumbotron">
+        <h1>Place Order</h1>
+        <p>Orders for Pickup</p>
+        <br>
+        <h2>Choose a Burger</h2>
+        <panel>
+            <form class="create-form">
+                <div class="form-group">
+                    <label for="nuevoburger">Order Fuego Burger</label>
+                    <select data-placeholder="" id="nuevoburger" name="burger">
+                        <option value="Nothing selected, you indecisive bitch"selected></option>
+                        <option value="Angus Burger"Angus Burger></option>
+                        <option value="Firestarter Burger"Firestarter Burger></option>
+                        <option value="Smokehouse Burger"Smokehouse Burger></option>
+                        <option value="Beyond Burger"Beyond Burger></option>
+                        <option value="Bison Burger"Bison Burger></option>
+                        <option value="Blackbean Burger"Blackbean Burger></option>
+                        <option value="Heart Attack Burger"Heart Attack Burger></option>
+                        <option value="Bruschetta Burger"Bruschetta Burger></option>
+                        <option value="Horseradish Mushroom Burger"Horseradish Mushroom Burger></option>
+                        <option value="Sunrise Burger"Sunrise Burger></option>
+                    </select>
+                    <button type="submit" class="btn btn-success" id="addburger">
+                        <span class="fas fa-burger">Devour</span>
+                    </button>
+                </div>
+            </form>
+        </panel>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="leftshift"><B>Order Burger</B>
+                    <p>Submit Order to Cashier when ready</p>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        {{#each burgers}}
+                        {{#unless devoured}}
+                        <span><B>{{this.id}} - {{this.burger_name}}</B></span>
+                        <button type="button" class="devourburger btn btn-warning" id="devourbutton" data-id="{{this.id}}"
+                            data-newDevoured="{{devour}}"><i class="fas fa-usd"></i></button>
+                        <hr>
+                        {{/unless}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="rightshift"><B>Burger Ready</B>
+                    <p>Remove Order from queue upon delivery</p>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        {{#each burgers}}
+                        {{#if devoured}}
+                        <span><B>{{this.id}} - {{this.burger_name}}</B></span>
+                        <button type="button" class="eightySixBurger btn btn-danger" id="eightySixButton" data-id="{{this.id}}"
+                            data-newDevoured="{{devour}}"><i class="fas fa-trash"></i></button>
+                        <hr>
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
