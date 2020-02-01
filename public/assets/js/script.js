@@ -95,3 +95,8 @@ async function handleClick() {
     }
   }
 }
+
+//displaying build a burger modal 
+function displayModal () {
+  $('#babModal').modal('toggle')
+};
