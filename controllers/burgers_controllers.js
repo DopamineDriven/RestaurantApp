@@ -101,6 +101,7 @@ router.get('/', async (request, response) => {
         //if array is an array and the results length corresponds to said array, then
         if (Array.isArray(results) && results.length) {
             //render index.hbs with response
+            console.log(hbsObj)
             response
                 .status(200)
                 .render("index", hbsObj)
