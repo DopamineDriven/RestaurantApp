@@ -10,3 +10,12 @@
     text-align: center;
     font-size: 1.3em;
   }
+
+  .jumbotron {
+    background-image: url("../img/burgerburger.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: #000000;
+    color: #ffffff;
+    margin-top: 3%;
+  }
