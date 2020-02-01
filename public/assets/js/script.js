@@ -100,3 +100,11 @@ async function handleClick() {
 function displayModal () {
   $('#babModal').modal('toggle')
 };
+
+async function handleBurgerPost() {
+  const checkboxes = document.querySelectorAll('.form-check-input')
+
+  let toppings = []
+  //forEach performs specified action for each node in list
+  checkboxes.forEach
+}
