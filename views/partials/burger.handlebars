@@ -1,4 +1,4 @@
-<!-- devour partial template -->
+<!-- burger partial template -->
 <div class="card mb-1" style="width: 100%">
     <div class="row no-gutters">
         <div class="col-md-3">
@@ -16,6 +16,21 @@
                     <i class="fas fa-hamburger"></i> Devour the Burger! </a>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-3">
+    <div class="card-mb-3">
+        <img src="{{this.img_url}}" class="card-img-top" alt="">
+        <div class="card-body">
+            <p class="card-text" style="font-size: 12px">{{this.burger_info}}</p>
+        </div>
+        <div class="card-button d-flex justify-content-center mb-4">
+            <a href="/devour" data-id="{{this.id}}"
+            onclick="handleClick.call(this)"
+            class="btn btn-warning text-black text-center pl-3 pr-3">
+            <i class="fas fa-hamburger"></i> Add</a>
         </div>
     </div>
 </div>
