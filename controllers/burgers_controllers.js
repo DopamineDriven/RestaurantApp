@@ -154,6 +154,38 @@ router.get('/devour', async (request, response) => {
     }
 });
 
+router.get('/bab', (request, response) => {
+    const featuredToppings = {
+        firstRow: ['Neuske Bacon', 'Ghost Pepper Cheese', 'Pepperjack Cheese'],
+        secondRow: ['Sharp Cheddar', 'Goat Cheese', 'Blue Cheese'],
+        thirdRow: ['Fried Egg', 'Crispy Onions', 'Smoked Gouda']
+    };
+    const toppings = {
+        firstRow: ['Tomatoes', 'Red Onions', 'White Onions', 'Lettuce', 'Cucumber', 'Avocado', 'Guacamole', 'Serranos', 'Jalapeños', 'Mushrooms'],
+        secondRow: ['Dijoin', 'Sriracha Aioli', 'Garlic Aioli', 'Tomato Basil Aioli', 'Ranch', 'Honey Mustard', 'Ketchup', 'BBQ Sauce'],
+        thirdRow: ['East Coast Hots', 'Arugula', 'Horseradish Sauce', 'Wasabi Aioli', 'Crispy Leeks', 'Creamy Leeks', 'Ultra Death Sauce']
+    };
+
+    const grillTop = [{
+        img_url: "",
+        burger_info: '100% fresh angus beef'
+    },
+    {
+        img_url: "",
+        burger_info: 'The Beyond Burger is a 100% plant based veggie burger'
+    },
+    {
+        img_url: '',
+        burger_info: 'The Firstarter Burger gives that kick you never knew you needed'
+    }
+    ]
+    response.render('bab', {
+        featuredToppings: featuredToppings,
+        toppings: toppings,
+        grillTop: grillTop
+    })
+});
+
 //middleware function to ensure required fields are accounted for on post/put requests; else throws an error
 //middleware tested via postman to ensure effectiveness
 function inputValidation(request, response, next) {
