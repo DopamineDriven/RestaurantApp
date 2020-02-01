@@ -5,6 +5,15 @@
     //})
 //})
 
+//preventDefault simplified using modal function
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(modal, 5000)
+});
+
+async function modal () {
+  
+}
+
 async function handleDevour() {
   try {
     const id = this.dataset.id;

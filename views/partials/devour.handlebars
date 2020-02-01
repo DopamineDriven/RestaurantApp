@@ -1,0 +1,20 @@
+<div class="card mb-1" style="width: 100%">
+    <div class="row no-gutters">
+        <div class="col-md-3">
+            <img src="{{this.img_url}}" class="card-img" alt="">
+        </div>
+        <div class="col-md-9">
+            <div class="card-body">
+                <h4 class="card-title">{{this.burger_name}}</h4>
+                <p class="card-text">{{this.burger_info}}</p>
+                <div class="card-button mb-4">
+                    <a href="/devour" data-id="{{this.data_id}}"
+                    onclick="handleDevour.call(this)" 
+                    class="btn btn-dark text-center pl-3 pr-3">
+                    <!-- favicon -->
+                    <i class="fas fa-hamburger"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
