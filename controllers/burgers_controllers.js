@@ -92,6 +92,9 @@ router.post('/api/burgers', inputValidation, async (request, response) => {
     }
 });
 
+//since response.render("index", hbsObj) is rendering the hbsObj to index.handlebars
+//Postman is not conducive to testing its functionality as it returns object: object
+//that said, console.log(hbsObj) prior to response.render returns the array of burgers contained in the database
 router.get('/', async (request, response) => {
     try {
         const results = await gettingAll();
