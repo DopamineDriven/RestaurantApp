@@ -34,7 +34,7 @@ function ObjToSql(ob) {
         arr.push(`${key}=${value}`)
     }
     return arr
-}
+};
 
 //orm object for all SQL statement functions
 const orm = {
@@ -51,7 +51,7 @@ const orm = {
             })
         });
     },
-    //post
+    //post requires printQuestionMarks helper function
     create: function(table, cols, vals) {
         return new Promise ((resolve, reject) => {
             let query = `INSERT INTO ${table} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
@@ -65,7 +65,7 @@ const orm = {
                })
         });
     },
-    //put
+    //put requires ObjToSql helper function
     update: function(table, colValsObj, condition) {
         return new Promise ((resolve, reject) => {
             let set=ObjToSql(colValsObj);
