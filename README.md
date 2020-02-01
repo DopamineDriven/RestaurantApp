@@ -9,6 +9,9 @@ express-handlebars -- https://www.npmjs.com/package/express-handlebars
 body-parser -- https://www.npmjs.com/package/body-parser
 nodemon -- https://www.npmjs.com/package/nodemon
 
+## link to updated portfolio
+https://dopaminedriven.github.io/portfolio/portfolio.html
+
 ## useful resources
 https://www.sitepoint.com/a-beginners-guide-to-handlebars/
 
