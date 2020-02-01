@@ -91,58 +91,56 @@ async function handleClick() {
   }
 }
 
-//displaying build a burger modal 
-function displayModal () {
-  $('#babModal').modal('toggle')
-};
+// //displaying build a burger modal 
+// function displayModal () {
+//   $('#babModal').modal('toggle')
+// };
 
-async function handleBurgerPost() {
-  const checkboxes = document.querySelectorAll('.form-check-input')
+// async function handleBurgerPost() {
+//   const checkboxes = document.querySelectorAll('.form-check-input')
 
-  let toppings = []
-  //forEach performs specified action for each node in list
-  checkboxes.forEach(checkbox => {
-    if(checkbox.checked) {
-      toppings.push(checkbox.value)
-    }
-  });
-  toppings = toppings.join(', ');
+//   let toppings = []
+//   //forEach performs specified action for each node in list
+//   checkboxes.forEach(checkbox => {
+//     if(checkbox.checked) {
+//       toppings.push(checkbox.value)
+//     }
+//   });
+//   toppings = toppings.join(', ');
 
-  let burger_info = document.querySelector('.btn.active p').innerText;
-  burger_info += `\nToppings: ${toppings}`;
+//   let burger_info = document.querySelector('.btn.active p').innerText;
+//   burger_info += `\nToppings: ${toppings}`;
   
-  const burger_name = document.querySelector('input[type="text]').value;
+//   const burger_name = document.querySelector('input[type="text]').value;
 
-  //getAttribute returns element's first attribute whose qualified name is qualifiedName (src in this case)
-  const img_url = document.querySelector('.btn.active img').getAttribute('src');
+//   //getAttribute returns element's first attribute whose qualified name is qualifiedName (src in this case)
+//   const img_url = document.querySelector('.btn.active img').getAttribute('src');
 
-  const data = {
-    burger_name = burger_name,
-    burger_info = burger_info,
-    img_url = img_url,
-    devoured: true
-  }
+//   const data = {
+//     burger_name = burger_name,
+//     devoured: true
+//   }
 
-  try {
-    const res = await fetch('/api/burgers', {
-      method: 'POST',
-      headers: {
-        'Conent-type' : 'application/json'
-      },
-      body: JSON.stringify(data)
-    });
-    if (res.ok) {
-      window.location.replace('/devour')
-    }
-  } catch (error) {
-      if (error) {
-        console.log(error)
-        throw error
-      }
-  }
-}
+//   try {
+//     const res = await fetch('/api/burgers', {
+//       method: 'POST',
+//       headers: {
+//         'Conent-type' : 'application/json'
+//       },
+//       body: JSON.stringify(data)
+//     });
+//     if (res.ok) {
+//       window.location.replace('/devour')
+//     }
+//   } catch (error) {
+//       if (error) {
+//         console.log(error)
+//         throw error
+//       }
+//   }
+// }
 
-//add event listener to ensure document object model content is loaded to prevent default 
-window.addEventListener('DOMContentLoaded', () => {
-  setTimeout(displayModal, 5000)
-})
+// //add event listener to ensure document object model content is loaded to prevent default 
+// window.addEventListener('DOMContentLoaded', () => {
+//   setTimeout(displayModal, 5000)
+// })
