@@ -61,7 +61,7 @@ function updatingAll() {
   });
 }
 
-//handle devouring entire list (reference views/devour.handlebars) via updatingAll handler
+// //handle devouring entire list (reference views/devour.handlebars) via updatingAll handler
 async function handleDevourAll() {
   try {
     await updatingAll();
@@ -74,7 +74,7 @@ async function handleDevourAll() {
   }
 }
 
-//handClick event
+// //handClick event
 async function handleClick() {
   try {
     const id = this.dataset.id;
@@ -89,58 +89,60 @@ async function handleClick() {
       throw error;
     }
   }
-}
+};
 
-// //displaying build a burger modal 
-// function displayModal () {
-//   $('#babModal').modal('toggle')
-// };
+// //wait to attach handlers until DOM is full
+// $(function() {
+//   $(".create-form").on("submit", event => {
+//     //prevent default on submit event
+//     event.preventDefault();
 
-// async function handleBurgerPost() {
-//   const checkboxes = document.querySelectorAll('.form-check-input')
-
-//   let toppings = []
-//   //forEach performs specified action for each node in list
-//   checkboxes.forEach(checkbox => {
-//     if(checkbox.checked) {
-//       toppings.push(checkbox.value)
-//     }
-//   });
-//   toppings = toppings.join(', ');
-
-//   let burger_info = document.querySelector('.btn.active p').innerText;
-//   burger_info += `\nToppings: ${toppings}`;
-  
-//   const burger_name = document.querySelector('input[type="text]').value;
-
-//   //getAttribute returns element's first attribute whose qualified name is qualifiedName (src in this case)
-//   const img_url = document.querySelector('.btn.active img').getAttribute('src');
-
-//   const data = {
-//     burger_name = burger_name,
-//     devoured: true
-//   }
-
-//   try {
-//     const res = await fetch('/api/burgers', {
-//       method: 'POST',
-//       headers: {
-//         'Conent-type' : 'application/json'
-//       },
-//       body: JSON.stringify(data)
+//     const nuevoBurger = {
+//       burger_name: $("#nuevoburger")
+//         .val()
+//         .trim(),
+//       devoured: 0
+//     };
+//     $.ajax("/api/burgers", {
+//       type: "POST",
+//       data: nuevoBurger
+//     }).then(() => {
+//       console.log("New Burger Created");
+//       //reload page to retrieve updated list
+//       location.reload();
 //     });
-//     if (res.ok) {
-//       window.location.replace('/devour')
-//     }
-//   } catch (error) {
-//       if (error) {
-//         console.log(error)
-//         throw error
-//       }
-//   }
-// }
+//   });
 
-// //add event listener to ensure document object model content is loaded to prevent default 
-// window.addEventListener('DOMContentLoaded', () => {
-//   setTimeout(displayModal, 5000)
-// })
+//   //Devour Burger on click event changes devour column to true
+//   $(".devourburger").on("click", event => {
+//     //prevent default on devour click event
+//     event.preventDefault();
+//     const id = $(this).data("id");
+//     const devouredState = {
+//       //if devoured = 1 return true; else devoured = 0 return false
+//       devoured: 1
+//     };
+//     //put request for true
+//     $.ajax(`/api/burgers/${id}`, {
+//       type: "PUT",
+//       data: devouredState
+//     }).then(() => {
+//       //reload upon completion of put request
+//       console.log("Burger Devoured!");
+//       location.reload();
+//     });
+//   });
+
+//   //eightySixBurger on click event deletes burger from DB
+//   $(".eightySixBurger").on("click", event => {
+//     //prevent default on eightySix click event
+//     event.preventDefault();
+//     const id = $(this).data("id");
+
+//     //send eightySix request
+//     $.ajax({
+//       type: "DELETE",
+//       url: `/api/burgers/${id}`
+//     }).then(location.reload());
+//   });
+// });
