@@ -127,6 +127,33 @@ router.get('/', async (request, response) => {
     }
 });
 
+router.get('/devour', async (request, response) => {
+    try {
+        const results = await gettingAll();
+        const hbsObj = {
+            burgers: results
+        };
+        if (Array.isArray(results) && results.length) {
+            response
+                .status(200)
+                .render("devour", hbsObj)
+        } else {
+            return response
+                .status(404)
+                .send("devour list not found")
+                .end()
+        }
+    } catch (error) {
+        if (error) {
+            console.log(error)
+            response
+                .status(500)
+                .send("error occurred")
+                throw error
+        }
+    }
+});
+
 //middleware function to ensure required fields are accounted for on post/put requests; else throws an error
 //middleware tested via postman to ensure effectiveness
 function inputValidation(request, response, next) {
