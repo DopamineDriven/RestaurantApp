@@ -47,7 +47,7 @@ The connection.js file is located in the config folder. This file requires mysql
 
 ## ORM (Object Relational Mapping)
 
-The orm.js file is located in the config folder and requires the connection.js folder (also located within the config folder). It provides the foundation for CRUD (create, read, update, delete) which are expanded upon in the model folder (using exported orm.js functions). These objects (comprised of key-value pairs) query the boiler-plate SQL syntax.
+The orm.js file is located in the config folder and requires the connection.js folder (also located within the config folder). It provides the foundation for CRUD (create, read, update, delete) which are expanded upon in the model folder (using exported orm.js functions). These functions query boiler-plate SQL syntax via interpolation.
 
 ## Model
 
