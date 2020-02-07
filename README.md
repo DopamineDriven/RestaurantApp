@@ -2,7 +2,18 @@
 mysql, express, express-handlebars, node, ORM, heroku
 
 # User Story
-This app allows users to input burgers that they would like to try. Upon eating (devouring) said burger, the user clicks the devour button. This moves the burger from the queue on the left side of the screen to the devoured column on the right side of the screen (the 86 burger column). The burger is 86'd from the app and corresponding database once the red trashcan button is clicked. For example, Bob heard about the beyond burger, a 100% plant-based burger, and how much it tasted and looked like a real burger. Bob really wants to try this burger, so he decides to add it to his burger queue. After eating the burger, he can check it off the list by clicking the yellow burger button indicating that he has "devoured" it. Perhaps Bob is at a restaurant and would like to try several signature burgers but ultimately he must choose one. With this app, he can add all three burgers to his burger queue. This provides a reminder of what items he would like to order the next time he eats at or orders to-go from that restaurant. 
+
+This app allows users to input burgers that they would like to try. Upon eating (devouring) said burger, the user clicks the devour button. This moves the burger from the queue on the left side of the screen to the devoured column on the right side of the screen (the 86 burger column). The burger is 86'd from the app and corresponding database once the red trashcan button is clicked. For example, Bob heard about the beyond burger, a 100% plant-based burger, and how much it tasted and looked like a real burger. Bob really wants to try this burger, so he decides to add it to his burger queue. After eating the burger, he can check it off the list by clicking the yellow burger button indicating that he has "devoured" it. Perhaps Bob is at a restaurant and would like to try several signature burgers but ultimately he must choose one. With this app, he can add all three burgers to his burger queue. This provides a reminder of what items he would like to order the next time he eats at or orders to-go from that restaurant.
+
+# Outlook
+
+This app, while relatively simplistic, could serve as the foundation for much more involved or complex apps. A to-go order verification app for a restaurant, for example, in which the user submits an order from their menu, it enters queue, and the user selects picked up to shift the order from queue to completed. Additional features could be incorporated for the user to leave the restaurant feedback regarding the quality of their order, whether all items were prepared correctly or not, and any suggestions or "nice-to-haves" the user might think of. This would be an efficient way for a restaurant to receive real-time feedback and constructive criticism from customers to help them improve their to-go procedures on an ongoing basis. This would also make customers feel more heard as they could affect change remotely without having to say "I'd like to speak to the manager". This is but one of many potential applications.  
+
+# Technical Overview
+
+
+
+
 
 ## npm dependencies
 - orm -- https://www.npmjs.com/package/orm
@@ -13,12 +24,12 @@ This app allows users to input burgers that they would like to try. Upon eating 
 - nodemon -- https://www.npmjs.com/package/nodemon
 
 ## link to heroku app
-https://restaurant-handlebars.herokuapp.com/
+https://infinite-stream-25057.herokuapp.com/
 
 ## link to updated portfolio
 https://dopaminedriven.github.io/portfolio/portfolio.html
 
-## useful resources
+## useful resource
 https://www.sitepoint.com/a-beginners-guide-to-handlebars/
 
 # Node Express Handlebars
