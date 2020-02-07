@@ -6,13 +6,13 @@ const JAWSDB_URL = require('./jaws.js')
 
 if (JAWSDB_URL) {
     connection = mysql.createConnection(JAWSDB_URL);
-// } else {connection = mysql.createConnection({
-//     //host: xyz.amazonaws.com or xyz.heroku goes here,
-//     port: 3306,
-//     user: 'root',
-//     password: 'Wordpass3!!!992',
-//     database: "burgers_db"
-// })
+} else {connection = mysql.createConnection({
+    //host: xyz.amazonaws.com or xyz.heroku goes here,
+    port: 3306,
+    user: 'root',
+    password: 'Wordpass3!!!992',
+    database: "burgers_db"
+    })
 };
 
 //establishing connection
