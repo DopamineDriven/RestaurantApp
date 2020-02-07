@@ -1,13 +1,16 @@
 # RestaurantApp
 mysql, express, express-handlebars, node, ORM, heroku
 
+# User Story
+This app allows users to input burgers that they would like to try. Upon eating (devouring) said burger, the user clicks the devour button. This moves the burger from the queue on the left side of the screen to the devoured column on the right side of the screen (the 86 burger column). The burger is 86'd from the app and corresponding database once the red trashcan button is clicked. For example, Bob heard about the beyond burger, a 100% plant-based burger, and how much it tasted and looked like a real burger. Bob really wants to try this burger, so he decides to add it to his burger queue. After eating the burger, he can check it off the list by clicking the yellow burger button indicating that he has "devoured" it. Perhaps Bob is at a restaurant and would like to try several signature burgers but ultimately he must choose one. With this app, he can add all three burgers to his burger queue. This provides a reminder of what items he would like to order the next time he eats at or orders to-go from that restaurant. 
+
 ## npm dependencies
-orm -- https://www.npmjs.com/package/orm
-mysql -- https://www.npmjs.com/package/mysql
-express -- https://www.npmjs.com/package/express
-express-handlebars -- https://www.npmjs.com/package/express-handlebars
-body-parser -- https://www.npmjs.com/package/body-parser
-nodemon -- https://www.npmjs.com/package/nodemon
+- orm -- https://www.npmjs.com/package/orm
+- mysql -- https://www.npmjs.com/package/mysql
+- express -- https://www.npmjs.com/package/express
+- express-handlebars -- https://www.npmjs.com/package/express-handlebars
+- body-parser -- https://www.npmjs.com/package/body-parser
+- nodemon -- https://www.npmjs.com/package/nodemon
 
 ## link to heroku app
 https://restaurant-handlebars.herokuapp.com/
