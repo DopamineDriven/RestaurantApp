@@ -2,7 +2,7 @@
 const mysql = require('mysql');
 let connection;
 //importing key value pair from jaws.js
-const JAWSDB_URL = require('./jaws.js')
+const JAWSDB_URL = 'mysql://i0tl3n1wicpz42dv:e5u43qa0wg7p66cr@j1r4n2ztuwm0bhh5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/ibum8812hgyphmpo'
 
 if (JAWSDB_URL) {
     connection = mysql.createConnection(JAWSDB_URL);
