@@ -48,8 +48,6 @@ const orm = {
                     console.log(error)
                     reject(error)
                 } resolve(result)
-            }).catch(error => {
-                console.log(error)
             })
         });
     },

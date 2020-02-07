@@ -144,13 +144,11 @@ router.get('/devour', async (request, response) => {
                 .end()
         }
     } catch (error) {
-        if (error) {
             console.log(error)
             response
                 .status(500)
                 .send("error occurred")
-                throw error
-        }
+                //throw error
     }
 });
 
