@@ -10,9 +10,6 @@ if (process.env.JAWSDB_URL) {
     user: 'root',
     password: 'Wordpass3!!!992',
     database: "burgers_db"
-}).catch((error) => {
-    console.log(error)
-    throw error
 })
 };
 
