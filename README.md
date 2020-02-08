@@ -80,6 +80,8 @@ The server is where the PORT is defined, the express app is declared, and body-p
 ## useful resource
 https://www.sitepoint.com/a-beginners-guide-to-handlebars/
 
+## Directory Structure Breakdown
+
 .
 ├── config
 │   ├── connection.js
