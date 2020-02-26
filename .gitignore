@@ -2,3 +2,4 @@ node_modules
 
 #ignore jaws.js which contains a heroku-linked security sensitive key-value pair
 config/jaws.js
+.env
